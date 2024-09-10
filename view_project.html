@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Project</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Project Report</h1>
+        <p>Viewing the project report.</p>
+
+        <!-- Embed the document -->
+        <div class="document-viewer">
+            <iframe id="docViewer" src="" frameborder="0"></iframe>
+        </div>
+
+        <a id="downloadLink" href="" class="btn btn-download" download>Download Report</a>
+    </div>
+
+    <script>
+        // Extract file name from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const file = urlParams.get('file');
+
+        // Set iframe src and download link
+        document.getElementById('docViewer').src = 'documents/' + file;
+        document.getElementById('downloadLink').href = 'documents/' + file;
+    </script>
+</body>
+</html>

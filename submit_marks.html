@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Marks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Marks</h1>
+        <p>Submit marks for student ID: <span id="studentId"></span></p>
+        <form action="submit_marks_backend" method="POST">
+            <label for="marks">Enter Marks:</label>
+            <input type="number" id="marks" name="marks" required>
+            <button type="submit" class="btn btn-submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Extract student ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentId = urlParams.get('student_id');
+        document.getElementById('studentId').textContent = studentId;
+    </script>
+</body>
+</html>
